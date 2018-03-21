@@ -19,14 +19,14 @@ public class CustomerController {
         this.customerRepository = customerRepository;
     }
 
-    @GetMapping("/customers/")
+    @GetMapping("/customers")
     public ResponseEntity<Set<Customer>> getCustomers() {
         return new ResponseEntity<>(customerRepository.findAll(), HttpStatus.OK);
     }
 
-    @PostMapping("/customers/customer/")
+    @PostMapping("/customers/customer")
     public ResponseEntity<Customer> getCustomer(@RequestParam final String email) {
-        Customer customer = customerRepository.findByEmail(email);
+        Customer customer = customerRepository.findByEmail(email.toLowerCase());
         if (customer != null) {
             return new ResponseEntity<>(customer, HttpStatus.OK);
         } else {
@@ -34,9 +34,9 @@ public class CustomerController {
         }
     }
 
-    @PostMapping("/customers/add/")
+    @PostMapping("/customers/add")
     public ResponseEntity<Customer> addCustomer(@RequestParam final String name, @RequestParam final String email) {
-        Customer customer = new Customer(name, email);
+        Customer customer = new Customer(name, email.toLowerCase());
         if (Utils.isAValidEmail(customer.getEmail())) {
             try {
                 customer = customerRepository.save(customer);
@@ -52,7 +52,7 @@ public class CustomerController {
     @PostMapping("/customers/delete")
     public ResponseEntity<String> deleteCustomer(@RequestParam String email) {
         try {
-            customerRepository.delete(customerRepository.findByEmail(email));
+            customerRepository.delete(customerRepository.findByEmail(email.toLowerCase()));
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
