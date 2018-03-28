@@ -25,7 +25,7 @@ public class CustomerServiceIntegrationTest {
     }
 
     @Test
-    public void shouldSaveAndFetchPerson() throws Exception {
+    public void shouldSaveAndFetchCustomer() throws Exception {
         Customer peter = new Customer("Peter Pan", "ppan@fantasy.com");
         subject.save(peter);
 
