@@ -88,6 +88,7 @@
     <orderEntry type="library" name="Gradle: org.ow2.asm:asm:5.1" level="project" />
     <orderEntry type="library" name="Gradle: org.ow2.asm:asm-commons:5.1" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-juli:8.5.14" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.projectlombok:lombok:1.16.16" level="project" />
     <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-server:9.4.4.v20170414" level="project" />
     <orderEntry type="library" name="Gradle: org.ow2.asm:asm-tree:5.1" level="project" />
   </component>
